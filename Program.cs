@@ -13,6 +13,12 @@ builder.Services.AddScoped<ILibraryService, LibraryService>();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var ctx = scope.ServiceProvider.GetRequiredService<LibraryContext>();
+    await ctx.Database.EnsureCreatedAsync();
+}
+
 // Endpoint 1: Конфигурация
 app.MapGet("/api/config", (IConfiguration config) =>
 {
