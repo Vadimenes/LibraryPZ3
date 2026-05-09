@@ -1,0 +1,23 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+*.dll
+*.exe
+*.pdb
+*.user
+*.suo
+*.sln.docstates
+.vs/
+.idea/
+
+# NuGet
+*.nupkg
+**/packages/*
+
+# Docker
+.env
+.Dockerfile
+.docker/
+
+# App settings
+appsettings.Development.json
