@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema; // Важно для [NotMapped]
 
 namespace LibraryPZ3.Models
 {
@@ -18,7 +18,7 @@ namespace LibraryPZ3.Models
         [Column(TypeName = "date")]
         public DateTime BirthDate { get; set; }
 
-        [NotMapped]
+        [NotMapped] // Это говорит EF Core не создавать колонку FullName в БД
         public string FullName => $"{FirstName} {LastName}";
 
         public virtual ICollection<Book> Books { get; set; } = new List<Book>();
